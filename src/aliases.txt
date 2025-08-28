@@ -1,0 +1,17 @@
+# ROS + Luanch
+alias infer='\
+  export PYTHONPATH="/root/librealsense/build/Release:$PYTHONPATH"; \
+  source /opt/ros/humble/setup.bash; \
+  source ~/ros2_ws/install/setup.bash; \
+  export LD_LIBRARY_PATH="/usr/local/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"; \
+  ros2 launch hailo_yolo hailo_yolo.launch.py 
+'
+
+# rqt_image_view 起動
+alias rqt='\
+  source .bashrc && \
+  source /opt/ros/humble/setup.bash && \
+  source ~/ros2_ws/install/setup.bash && \
+  ros2 run rqt_image_view rqt_image_view \'
+
+
