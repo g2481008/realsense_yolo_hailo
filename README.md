@@ -53,20 +53,6 @@ Reboot:
 sudo reboot
 ```
 
-### USB bind for D455 (No need for D435/D435i)
-```
-echo 'options usbhid quirks=0x8086:0x0b5c:0x0004' | \
-  sudo tee /etc/modprobe.d/realsense-hid.conf
-sudo depmod -a
-sudo sed -i 's/$/ usbhid.quirks=0x8086:0x0b5c:0x0004/' \
-  /boot/firmware/cmdline.txt
-sudo update-initramfs -u -k $(uname -r)
-```
-Reboot:
-```
-sudo reboot
-```
-
 ### Build container image
 In your folder existed Dockerfile, execute:
 ```
