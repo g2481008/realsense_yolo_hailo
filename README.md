@@ -7,9 +7,19 @@ Please note that this repository only provides a Dockerfile. Additional configur
 
 # Host setup
 ### Hailo install
+See: https://www.raspberrypi.com/documentation/accessories/ai-kit.html
 ```
-sudo apt get update
+sudo apt update && sudo apt full-upgrade
+sudo rpi-eeprom-update
 sudo apt install hailo-all -y
+```
+Reboot:
+```
+sudo reboot
+```
+
+### USB rules configuration for realsense device
+```
 mkdir realsense && cd realsense
 git clone https://github.com/IntelRealSense/librealsense.git
 cd ~/librealsense
