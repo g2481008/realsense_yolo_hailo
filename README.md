@@ -57,7 +57,14 @@ sudo reboot
 In your folder existed Dockerfile, execute:
 ```
 docker build -t realsense_yolo_hailo .
-docker run -it -d --net=host --privileged --device=/dev/hailo0:/dev/hailo0 --device=/dev/bus/usb --device-cgroup-rule='c 189:* rmw' -v /tmp/.X11-unix:/tmp/.X11-unix -v /lib/firmware:/lib/firmware -v /lib/udev/rules.d:/lib/udev/rules.d -v /lib/modules:/lib/modules -v /dev:/dev realsense_yolo_hailo
+docker run -td --net=host --privileged -v /tmp/.X11-unix:/tmp/.X11-unix -v /lib/firmware:/lib/firmware -v /lib/udev/rules.d:/lib/udev/rules.d -v /lib/modules:/lib/modules -v /dev:/dev --name rscamDetector realsense_yolo_hailo
+```
+
+### Into the container
+Attach to container, execute:
+```
+docker start rscamDetector
+docker exec -it rscamDetector /bin/bash
 ```
 
 # Usage
